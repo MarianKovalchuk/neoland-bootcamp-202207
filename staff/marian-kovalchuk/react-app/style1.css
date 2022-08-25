@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* resets */
+
+* {
+    font-family: Lato;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container--full {
+    height: 100%;
+}
+
+.container--row {
+    flex-direction: row;
+}
+
+.container--spaced {
+    gap: 10px;
+}
+
+.container--distributed {
+    justify-content: space-between;
+}
+
+.header {
+    display: flex;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input {
+    background-color: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 1rem;
+    caret-color: white;
+}
+
+.input:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white;
+}
+
+.input::selection {
+    background-color: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: dodgerblue;
+}
+
+.input::placeholder {
+    color: transparent;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.button {
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+.anchor {
+    color: white;
+}
+
+.anchor:visited {
+    color: white;
+}
+
+.main {
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.main::-webkit-scrollbar {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    background-color: dodgerblue;
+    width: 100%;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.list__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    color: black;
+    width: 300px;
+    font-size: 1.5rem;
+    min-height: 3rem;
+    padding: 0 0 1rem 0;
+}
+
+.list__item-text {
+    width: calc(100% - 2rem);
+    height: auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+}
+
+.list__item-delete-button {
+    align-self: flex-end;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transparent-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+}

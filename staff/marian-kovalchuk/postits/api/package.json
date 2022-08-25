@@ -1,0 +1,22 @@
+{
+    "name": "api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node .",
+        "test": "npx jest",
+        "test-inspect": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
+        "test-inspect-cli": "node inspect ./node_modules/.bin/jest logic/*.spec.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.1",
+        "validators": "file:../validators"
+    },
+    "devDependencies": {
+        "jest": "^28.1.3"
+    }
+}

@@ -1,0 +1,20 @@
+.Menu {
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    gap:10px;
+    outline: none;
+    resize: none;
+    top:80px;
+    list-style: none;
+    display: flex;
+    justify-content: row;
+}
+Menu__Item{
+        height: 20px;
+        width: 20px
+}
+/*
+.Menu-panel{
+
+}*/
