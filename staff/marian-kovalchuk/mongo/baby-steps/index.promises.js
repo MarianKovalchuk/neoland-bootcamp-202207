@@ -2,7 +2,7 @@ const mongodb = require('mongodb')
 
 const { MongoClient } = mongodb
 
-const client = new MongoClient('mongodb+srv://marian:<password>@cluster0.pjhliet.mongodb.net/test')
+const client = new MongoClient('mongodb+srv://marian:5d32a811@cluster0.pjhliet.mongodb.net/test')
 
 client.connect()
     .then(connection => {

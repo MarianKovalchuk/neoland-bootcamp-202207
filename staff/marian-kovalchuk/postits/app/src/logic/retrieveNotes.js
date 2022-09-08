@@ -1,3 +1,5 @@
+const API_URL = process.env.REACT_APP_API_URL
+
 function retrieveNotes(token, callback) {
     if (typeof token !== 'string') throw new TypeError('token is not a string')
     if (token.trim().length === 0) throw new Error('token is empty or blank')
@@ -18,9 +20,7 @@ function retrieveNotes(token, callback) {
         else if (status === 200) {
             const json = xhr.responseText
 
-            const data = JSON.parse(json)
-
-            const notes = data.notes? data.notes.reverse() : []
+            const notes = JSON.parse(json)
 
             callback(null, notes)
         }
@@ -28,7 +28,7 @@ function retrieveNotes(token, callback) {
 
     // request
 
-    xhr.open('GET', 'https://b00tc4mp.herokuapp.com/api/v2/users')
+    xhr.open('GET', `${API_URL}/notes`)
 
     xhr.setRequestHeader('Authorization', `Bearer ${token}`)
 

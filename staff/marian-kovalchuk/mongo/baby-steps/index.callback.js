@@ -2,7 +2,7 @@ const mongodb = require('mongodb')
 
 const { MongoClient } = mongodb
 
-const client = new MongoClient('mongodb://localhost:27017')
+const client = new MongoClient('mongodb+srv://marian:5d32a811@cluster0.pjhliet.mongodb.net/test')
 
 client.connect((error, connection) => {
     if (error) return console.error('ERROR', error)

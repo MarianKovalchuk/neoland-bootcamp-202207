@@ -14,7 +14,10 @@
     "license": "ISC",
     "dependencies": {
         "express": "^4.18.1",
-        "validators": "file:../validators"
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.5.3",
+        "validators": "file:../validators",
+        "winston": "^3.8.1"
     },
     "devDependencies": {
         "jest": "^28.1.3"

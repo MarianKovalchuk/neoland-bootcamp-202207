@@ -1,0 +1,43 @@
+.TaskList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0px;
+    margin: 0px;
+    /*width: fit-content*/
+}
+
+.TaskList__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 213, 230);
+    color: black;
+    width: 300px;
+    font-size: 1.5rem;
+    min-height: 3rem;
+    padding: 0 0 1rem 0;
+}
+
+.list__item-text {
+    width: calc(100% - 1rem);
+    height: auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+}
+
+.TaskList__item-delete-button {
+    align-self: flex-end;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
