@@ -1,6 +1,6 @@
 module.exports = {
     createTaskHandler: require('./createTaskHandler'),
-    retrieveTasksHandler: require('./retrieveTasksHandler'),
+    retrieveTaskHandler: require('./retrieveTaskHandler'),
     updateTaskTextHandler: require('./updateTaskTextHandler'),
-    searchTasksHandler: require('./searchTasksHandler')
+    searchTaskHandler: require('./searchTaskHandler')
 }

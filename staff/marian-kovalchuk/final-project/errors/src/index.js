@@ -3,5 +3,6 @@ module.exports = {
     DuplicityError: require('./DuplicityError'),
     FormatError: require('./FormatError'),
     SystemError: require('./SystemError'),
-    UnknownError: require('./UnknownError')
+    UnknownError: require('./UnknownError'),
+    ServerError: require('./ServerError')
 }

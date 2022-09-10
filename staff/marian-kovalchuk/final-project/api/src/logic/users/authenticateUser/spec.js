@@ -1,6 +1,6 @@
 const { connect, disconnect } = require('mongoose')
 const { User } = require('../../../models')
-const { NotFoundError, AuthError } = require('../../../errors')
+const { NotFoundError, AuthError } = require('errors')
 const authenticateUser = require('.')
 
 describe('authenticateUser', () => {

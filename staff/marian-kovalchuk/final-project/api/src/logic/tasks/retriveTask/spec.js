@@ -1,6 +1,6 @@
 const { connect, disconnect, Types: { ObjectId } } = require('mongoose')
 const { User, Task } = require('../../../models')
-const { NotFoundError } = require('../../../errors')
+const { NotFoundError } = require('errors')
 const retrieveTasks = require('.')
 
 describe('retrieveNotes', () => {

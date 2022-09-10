@@ -2,7 +2,7 @@ const express = require('express')
 const { Router, json } = express
 const jsonBodyParser = json()
 const { registerUserHandler, authenticateUserHandler, retrieveUserHandler } = require('./users')
-const { createTaskHandler, retrieveTasksHandler, updateTaskTextHandler, searchTasksHandler } = require('./tasks')
+const { createTaskHandler, retrieveTaskHandler, updateTaskTextHandler, searchTaskHandler } = require('./tasks')
 
 const usersRouter = Router()
 
@@ -16,9 +16,9 @@ usersRouter.get('/users', retrieveUserHandler)
 const tasksRouter = Router()
 
 tasksRouter.post('/tasks', jsonBodyParser, createTaskHandler)
-tasksRouter.get('/tasks', retrieveTasksHandler)
+tasksRouter.get('/tasks', retrieveTaskHandler)
 tasksRouter.patch('/tasks/:taskId', jsonBodyParser, updateTaskTextHandler)
-tasksRouter.get('/tasks/search', searchtasksHandler)
+tasksRouter.get('/tasks/search', searchTaskHandler)
 
 module.exports = {
     usersRouter,

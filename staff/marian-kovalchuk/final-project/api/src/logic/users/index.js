@@ -1,4 +1,5 @@
 module.exports = {
-    users: require('./users'),
-    tasks: require('./tasks')
+    registerUser: require('./registerUser'),
+    authenticateUser: require('./authenticateUser'),
+    retrieveUser: require('./retriveUser')
 }

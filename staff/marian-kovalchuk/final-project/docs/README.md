@@ -1,10 +1,29 @@
-# zroby!
+# zrobý!
 
 ![](https://media.giphy.com/media/RjDIwuXYPzrAEjb6HP/giphy.gif)
 
-Aplicación para crear tareas y hacer un seguimiento de las mismas, cambiar su estado, etc.
 
-## Functional Description
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+ `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+
+Aplicación para crear tareas y hacer un seguimiento de las mismas, cambiar su estado, etc. 
+la aplicación es ideal para personas que tienen problemas para establecer metas y plazos. gracias a "zrobý!" podrá planificar sus asuntos, establecer tareas de diferente complejidad, ordenar tareas en el proceso de su ejecución. En el futuro, con la ayuda de la aplicación, será posible crear tareas grupales y realizarlas junto con un grupo de amigos. Todos podrán ver y controlar la ejecución de la tarea y obtener el resultado antes de la fecha límite para cada tarea individual.
+
+### Functional Description
 
  El usuario crea una tarea y define la fecha de finalización de la ejecución.
 
@@ -18,7 +37,9 @@ Aplicación para crear tareas y hacer un seguimiento de las mismas, cambiar su e
 
  Adicionalmente, asignamos una prioridad a la tarea, como "alta", "media", o "baja".
 
-### Use Cases
+
+
+#### Use Cases
 
 User
 - list tasks
@@ -31,13 +52,13 @@ User
 
 TODO draw use cases diagram
 
-## Technical Description
+### Technical Description
 
-## Blocks
+### Blocks
 
 TODO draw blocks diagram
 
-## Data Model
+### Data Model
 
 User
 - id:ObjectId (automatico mongo)

@@ -1,6 +1,6 @@
 const { User } = require('../../../models')
-const { DuplicityError, SystemError } = require('../../../errors')
-const { validateText, validateEmail, validatePassword } = require('../../../validators')
+const { DuplicityError, SystemError } = require('errors')
+const { validateText, validateEmail, validatePassword } = require('validators')
 
 function registerUser(name, email, password) {
     validateText(name, 'name')

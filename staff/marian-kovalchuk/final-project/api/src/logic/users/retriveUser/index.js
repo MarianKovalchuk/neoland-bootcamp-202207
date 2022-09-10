@@ -1,5 +1,5 @@
 const { User } = require('../../../models')
-const { NotFoundError, SystemError } = require('../../../errors')
+const { NotFoundError, SystemError } = require('errors')
 const { verifyObjectId } = require('../../../utils')
 
 function retrieveUser(userId) {
