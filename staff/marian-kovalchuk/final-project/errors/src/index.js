@@ -4,5 +4,7 @@ module.exports = {
     FormatError: require('./FormatError'),
     SystemError: require('./SystemError'),
     UnknownError: require('./UnknownError'),
-    ServerError: require('./ServerError')
+    ServerError: require('./ServerError'),
+    NotFoundError: require('./NotFoundError')
+
 }

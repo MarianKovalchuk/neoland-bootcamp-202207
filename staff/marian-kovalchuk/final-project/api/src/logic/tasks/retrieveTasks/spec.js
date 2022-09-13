@@ -3,12 +3,12 @@ const { User, Task } = require('../../../models')
 const { NotFoundError } = require('errors')
 const retrieveTasks = require('.')
 
-describe('retrieveNotes', () => {
+describe('retrieveTasks', () => {
     beforeAll(() => connect('mongodb+srv://marian:5d32a811@cluster0.pjhliet.mongodb.net/test2'))
 
     beforeEach(() => Promise.all([User.deleteMany(), Task.deleteMany()]))
 
-    it('succeeds on existing user and notes', () => {  // happy path
+    it('succeeds on existing user and tasks', () => {  // happy path
         const name = 'Pepito Grillo'
         const email = 'pepito@grillo.com'
         const password = '123123123'
@@ -30,7 +30,7 @@ describe('retrieveNotes', () => {
                     .then(tasks => {
                         expect(tasks).toHaveLength(3)
 
-                        const _task1 = tasks.find(note => task.id === task1.id)
+                        const _task1 = tasks.find(task => task.id === task1.id)
                         expect(_task1).toBeDefined()
                         expect(_task1.user).toBeUndefined()
                         expect(_task1.text).toEqual(task1.text)
@@ -38,7 +38,7 @@ describe('retrieveNotes', () => {
                         expect(_task1.createdAt).toEqual(task1.createdAt)
                         expect(_task1.modifiedAt).toBeUndefined()
 
-                        const _task2 = tasks.find(note => note.id === task2.id)
+                        const _task2 = tasks.find(task => task.id === task2.id)
                         expect(_task2).toBeDefined()
                         expect(_task2.user).toBeUndefined()
                         expect(_task2.text).toEqual(task2.text)
@@ -46,7 +46,7 @@ describe('retrieveNotes', () => {
                         expect(_task2.createdAt).toEqual(task2.createdAt)
                         expect(_task2.modifiedAt).toBeUndefined()
 
-                        const _task3 = tasks.find(note => task.id === task3.id)
+                        const _task3 = tasks.find(task => task.id === task3.id)
                         expect(_task3).toBeDefined()
                         expect(_task3.user).toBeUndefined()
                         expect(_task3.text).toEqual(task3.text)

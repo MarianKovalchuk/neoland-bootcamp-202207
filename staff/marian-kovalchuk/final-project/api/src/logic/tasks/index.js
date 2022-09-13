@@ -1,3 +1,4 @@
 module.exports = {
-    createTask: require('./createTask')
+    createTask: require('./createTask'),
+    retrieveTasks: require('./retrieveTasks'),
 }

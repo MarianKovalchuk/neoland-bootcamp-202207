@@ -33,5 +33,4 @@ function createTask(token, callback) {
     xhr.send(json)
 }
 
-
 export default createTask

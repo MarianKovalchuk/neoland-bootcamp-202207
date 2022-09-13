@@ -1,7 +1,7 @@
 const { User, Task } = require('../../../models')
 const { NotFoundError, SystemError } = require('errors')
-const { validateString } = require('validators')
-const { verifyObjectId } = require('../../../utils')
+const { validateText } = require('validators')
+const { verifyObjectIdString } = require('../../../utils')
 
 /**
  * Creates a note for a user.
@@ -17,9 +17,10 @@ const { verifyObjectId } = require('../../../utils')
  * @throws {NotFoundError} If the user is not found.
  * @throws {SystemError} If an error happens in db.
  */
-function createTask(userId, text = '') {
-    verifyObjectId(userId, 'user id')
-    validateString(text, 'text')
+function createTask(userId, text, priority) {
+    verifyObjectIdString(userId, 'user id')
+    validateText(text)
+    validateText(priority)
 
     return User.findById(userId).lean()
         .catch(error => {
@@ -28,7 +29,7 @@ function createTask(userId, text = '') {
         .then(user => {
             if (!user) throw new NotFoundError(`user with id ${userId} not found`)
 
-            return Task.create({ user: user._id, text })
+            return Task.create({ user: user._id, text, priority })
                 .catch(error => {
                     throw new SystemError(error.message)
                 })

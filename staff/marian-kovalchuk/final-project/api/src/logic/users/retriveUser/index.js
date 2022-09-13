@@ -1,9 +1,9 @@
 const { User } = require('../../../models')
 const { NotFoundError, SystemError } = require('errors')
-const { verifyObjectId } = require('../../../utils')
+const { verifyObjectIdString } = require('../../../utils')
 
 function retrieveUser(userId) {
-    verifyObjectId(userId, 'user id')
+    verifyObjectIdString(userId, 'user id')
 
     return User.findById(userId, 'name email').lean()
         .catch(error => {
