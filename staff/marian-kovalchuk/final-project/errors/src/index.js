@@ -5,6 +5,7 @@ module.exports = {
     SystemError: require('./SystemError'),
     UnknownError: require('./UnknownError'),
     ServerError: require('./ServerError'),
-    NotFoundError: require('./NotFoundError')
+    NotFoundError: require('./NotFoundError'),
+    ClientError: require('./ClientError')
 
 }

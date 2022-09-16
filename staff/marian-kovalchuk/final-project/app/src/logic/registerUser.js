@@ -1,5 +1,7 @@
 import { EMAIL_REGEX } from './constants'
 
+const API_URL = process.env.REACT_APP_API_URL
+
 function registerUser(name, email, password, callback) {
     if (typeof name !== 'string') throw new TypeError('name is not a string')
     if (name.trim().length === 0) throw new Error('name is empty or blank')
@@ -32,11 +34,11 @@ function registerUser(name, email, password, callback) {
 
     // request
     
-    xhr.open('POST', 'https://b00tc4mp.herokuapp.com/api/v2/users')
+    xhr.open('POST', `${API_URL}/users`)
 
     xhr.setRequestHeader('Content-type', 'application/json')
 
-    xhr.send(`{"name": "${name}", "username": "${email}", "password": "${password}" }`)
+    xhr.send(`{"name": "${name}", "email": "${email}", "password": "${password}" }`)
 }
 
 export default registerUser

@@ -1,7 +1,8 @@
 require('dotenv').config()
+
 const { NotFoundError } = require('errors')
 const { User, Task } = require('../../../models')
-const deleteTask = require('./deleteTask')
+const deleteTask = require('../deleteTask')
 const { connect, disconnect, Types: { ObjectId } } = require('mongoose')
 const chai = require('chai')
 const chaiaspromise = require('chai-as-promised')

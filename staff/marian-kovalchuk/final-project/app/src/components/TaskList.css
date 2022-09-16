@@ -4,7 +4,7 @@
     gap: 10px;
     padding: 0px;
     margin: 0px;
-    /*width: fit-content*/
+    /* width: fit-content */
 }
 
 .TaskList__item {
@@ -35,9 +35,14 @@
     width: 1rem;
     height: 1rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     border: 0;
     background-color: transparent;
     cursor: pointer;
+}
+
+.navigate_buttons {
+    
+    
 }

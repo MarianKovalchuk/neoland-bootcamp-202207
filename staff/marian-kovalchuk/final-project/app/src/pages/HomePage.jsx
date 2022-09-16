@@ -19,7 +19,7 @@ function HomePage({ onLogoutClick, context: { handleFeedback } }) {
     const [tasks, setTasks] = useState(null)
     const navigate = useNavigate()
     const location = useLocation()
-    const [query, setQuery] = useState(null)
+    // const [query, setQuery] = useState(null)
 
     useEffect(() => {
         logger.info('"componentDidMount"')
@@ -49,15 +49,15 @@ function HomePage({ onLogoutClick, context: { handleFeedback } }) {
         loadTasks()
     }, [])
 
-    useEffect(() => {
-        logger.info('on query changed')
+    // useEffect(() => {
+    //     logger.info('on query changed')
 
-        loadTasks()
-    }, [query])
+    //     loadTasks()
+    // }, [query])
 
     const loadTasks = () => {
         try {
-            if (!query)
+            // if (!query)
             retrieveTasks(sessionStorage.token, (error, tasks) => {
                 if (error) {
                     handleFeedback({ message: error.message, level: 'error' })
@@ -71,20 +71,20 @@ function HomePage({ onLogoutClick, context: { handleFeedback } }) {
 
                 logger.debug('setTasks', tasks)
              })
-            else
-                searchTasks(sessionStorage.token, query, (error, tasks) => {
-                    if (error) {
-                        handleFeedback({ message: error.message, level: 'error' })
+            // else
+            //     searchTasks(sessionStorage.token, query, (error, tasks) => {
+            //         if (error) {
+            //             handleFeedback({ message: error.message, level: 'error' })
 
-                        logger.warn(error.message)
+            //             logger.warn(error.message)
 
-                        return
-                    }
+            //             return
+            //         }
 
-                    setTasks(tasks)
+            //         setTasks(tasks)
 
-                    logger.debug('setTasks', tasks)
-                })
+            //         logger.debug('setTasks', tasks)
+            //     })
 
 
         } catch (error) {
@@ -96,7 +96,7 @@ function HomePage({ onLogoutClick, context: { handleFeedback } }) {
 
     const handleAddClick = () => {
         try {
-            createTask(sessionStorage.token, error => {
+            createTask(sessionStorage.token, '', error => {
                 if (error) {
                     handleFeedback({ message: error.message, level: 'error' })
 
@@ -105,7 +105,7 @@ function HomePage({ onLogoutClick, context: { handleFeedback } }) {
                     return
                 }
 
-                setQuery(null)
+                // setQuery(null)
 
                 loadTasks()
             })
@@ -167,7 +167,7 @@ function HomePage({ onLogoutClick, context: { handleFeedback } }) {
 
         logger.debug('navigate to list')
     }
-    const handleSearch = query => setQuery(query)
+    // const handleSearch = query => setQuery(query)
 
     logger.info('return')
 

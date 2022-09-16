@@ -1,10 +1,14 @@
+require('dotenv').config()
+
 const { connect, disconnect, Types: { ObjectId } } = require('mongoose')
 const { User, Task } = require('../../../models')
 const { NotFoundError, AuthError } = require('errors')
 const updateTaskText = require('.')
 
+const { MONGO_URL } = process.env
+
 describe('updateTaskText', () => {
-    beforeAll(() => connect('mongodb://localhost:27017/postits-test2'))
+    beforeAll(() => connect(MONGO_URL))
 
     beforeEach(() => Promise.all([User.deleteMany(), Task.deleteMany()]))
 
@@ -15,14 +19,14 @@ describe('updateTaskText', () => {
 
         return User.create({ name, email, password })
             .then(user => Task.create({ user: user.id })
-                .then(note => {
+                .then(task => {
                     return updateTaskText(user.id, task.id, 'new Text')
                         .then(res => {
                             expect(res).toBeUndefined()
 
                             return Task.findById(task.id)
                         })
-                        .then(noteFounded => {
+                        .then(taskFounded => {
                             expect(taskFounded.text).toEqual('new Text')
                             expect(taskFounded.user.toString()).toEqual(user.id)
                             expect(taskFounded.visibility).toEqual('private')
@@ -35,7 +39,7 @@ describe('updateTaskText', () => {
 
     })
 
-    it('fails on note that does not belong to the user', () => {
+    it('fails on task that does not belong to the user', () => {
         const name1 = 'Pepito Grillo'
         const email1 = 'pepito@grillo.com'
         const password1 = '123123123'
@@ -95,7 +99,7 @@ describe('updateTaskText', () => {
                     .then(() => { throw new Error('it should not reach this point') })
                     .catch(error => {
                         expect(error).toBeInstanceOf(NotFoundError)
-                        expect(error.message).toEqual(`note with id ${wrongTaskId} not found`)
+                        expect(error.message).toEqual(`task with id ${wrongTaskId} not found`)
                     })
             })
     })

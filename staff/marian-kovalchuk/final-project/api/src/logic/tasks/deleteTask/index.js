@@ -1,4 +1,6 @@
-const { NotFoundError } = require('errors')
+require('dotenv').config()
+
+const { NotFoundError, AuthError } = require('errors')
 const { User, Task } = require('../../../models')
 
 function deleteTask(userId, taskId) {
@@ -9,12 +11,13 @@ function deleteTask(userId, taskId) {
 
         if(!user) throw new NotFoundError(`User with ID ${userId} not found`)
 
-        const task = await Task.findOne({user: userId, _id: taskId})
+        const task = await Task.findById(taskId)
 
         if(!task) throw new NotFoundError(`Task with id ${taskId} not found`)
 
-        await Task.deleteOne({_id: taskId})
+        if (task.user.toString() !== userId) throw new AuthError(`User with ID ${userId} is not the owner of Task with ID ${taskId}`)
 
+        await Task.deleteOne({_id: taskId})
     })()
 
 }

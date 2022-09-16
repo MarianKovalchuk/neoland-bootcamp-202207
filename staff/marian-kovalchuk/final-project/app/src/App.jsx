@@ -60,8 +60,8 @@ function App() {
     return <Context.Provider value={{ handleFeedback, toggleTheme }}>
         <div className="App App--dark container container--full">
         <Routes>
-                <Route path="login" element={ <LoginPage onLinkClick={handleNavigationToRegister} onLogIn={handleNavigationToHome} />} />
-                <Route path="register" element={ <RegisterPage onLinkClick={handleNavigationToLogin} />} />
+                <Route path="login" element={ sessionStorage.token? <Navigate to= "/"/> : <LoginPage onLinkClick={handleNavigationToRegister} onLogIn={handleNavigationToHome} />} />
+                <Route path="register" element={sessionStorage.token? <Navigate to= "/"/> :<RegisterPage onLinkClick={handleNavigationToLogin} />} />
 
                 <Route path="/*" element={sessionStorage.token? <HomePage onLogoutClick={handleLogoutClick} /> : <Navigate to='login' />} />
             </Routes>

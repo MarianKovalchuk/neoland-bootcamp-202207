@@ -1,13 +1,15 @@
+require('dotenv').config()
+
 const { User, Task } = require('../../../models')
 const { NotFoundError, SystemError } = require('errors')
 const { validateText } = require('validators')
 const { verifyObjectIdString } = require('../../../utils')
 
 /**
- * Creates a note for a user.
+ * Creates a task for a user.
  * 
  * @param {string} userId The user id.
- * @param {string} text The note text.
+ * @param {string} text The task text.
  * 
  * @returns {Promise}
  *
@@ -20,7 +22,7 @@ const { verifyObjectIdString } = require('../../../utils')
 function createTask(userId, text, priority) {
     verifyObjectIdString(userId, 'user id')
     validateText(text)
-    validateText(priority)
+    if (priority) validateText(priority)
 
     return User.findById(userId).lean()
         .catch(error => {

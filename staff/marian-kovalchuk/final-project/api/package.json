@@ -4,9 +4,16 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "npx jest src/logic",
     "start": "node src",
-    "populate": "node src/populate.js"
+    "start-inspect": "node --inspect-brk src",
+    "test": "npx jest --runInBand --setTimeout=60000 src/logic",
+    "test-inspect": "node --inspect ./node_modules/.bin/jest --runInBand --setTimeout=60000 src/logic",
+    "test-inspect-brk": "node --inspect-brk ./node_modules/.bin/jest --runInBand --setTimeout=60000 src/logic",
+    "test-inspect-cli": "node inspect ./node_modules/.bin/jest --runInBand --setTimeout=60000 src/logic",
+    "test-coverage": "npx jest --runInBand --setTimeout=60000 --collectCoverage src/logic",
+    "populate": "node src/populate.js",
+    "populate-inspect": "node --inspect-brk src/populate.js",
+    "populate-inspect-cli": "node inspect src/populate.js"
   },
   "keywords": [],
   "author": "",

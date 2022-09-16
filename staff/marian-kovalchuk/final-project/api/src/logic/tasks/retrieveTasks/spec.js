@@ -1,10 +1,15 @@
+require('dotenv').config()
+
 const { connect, disconnect, Types: { ObjectId } } = require('mongoose')
 const { User, Task } = require('../../../models')
 const { NotFoundError } = require('errors')
 const retrieveTasks = require('.')
 
+const { MONGO_URL } = process.env
+
 describe('retrieveTasks', () => {
-    beforeAll(() => connect('mongodb+srv://marian:5d32a811@cluster0.pjhliet.mongodb.net/test2'))
+    beforeAll(() => connect(MONGO_URL))
+   
 
     beforeEach(() => Promise.all([User.deleteMany(), Task.deleteMany()]))
 

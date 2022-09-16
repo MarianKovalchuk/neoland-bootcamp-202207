@@ -1,6 +1,6 @@
 const API_URL = process.env.REACT_APP_API_URL
 
-function createTask(token, callback) {
+function createTask(token, text, callback) {
     if (typeof token !== 'string') throw new TypeError('token is not a string')
     if (token.trim().length === 0) throw new Error('token is empty or blank')
 
@@ -28,7 +28,7 @@ function createTask(token, callback) {
     xhr.setRequestHeader('Authorization', `Bearer ${token}`)
     xhr.setRequestHeader('Content-type', 'application/json')
 
-    const json = JSON.stringify({ text: '' })
+    const json = JSON.stringify({ text })
 
     xhr.send(json)
 }

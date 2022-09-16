@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const { User, Task } = require('../../../models')
 const { NotFoundError, SystemError } = require('errors')
 const { verifyObjectIdString } = require('../../../utils')

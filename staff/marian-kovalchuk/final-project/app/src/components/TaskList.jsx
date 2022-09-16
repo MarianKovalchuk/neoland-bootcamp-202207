@@ -8,9 +8,13 @@ function TaskList({ tasks, onDeleteTask, onUpdateTask }) {
 
     return <ul className="TaskList">
         {tasks && tasks.map(task => <li className="TaskList__item" key={task.id}>
-            <button className="TaskList__item-delete-button" onClick={() => onDeleteTask(task.id)}>x</button>
-
-
+           <div> <button className="TaskList__item-delete-button" onClick={() => onDeleteTask(task.id)}>x</button>
+           <div className='navigate_buttons'>
+            
+            <button className='high_priority'>high</button>
+            <button className='medium_priority'>medium</button>
+            <button className='low_priority'>low</button>
+            </div>
             <p suppressContentEditableWarning="true" contentEditable="true"  className="list__item-text" onKeyUp={event => {
                 if (window.updateTaskTimeoutId)
                 clearTimeout(window.updateTaskTimeoutId)
@@ -21,6 +25,7 @@ function TaskList({ tasks, onDeleteTask, onUpdateTask }) {
                onUpdateTask(task.id, text)
             }, 500)
         }}>{task.text}</p>
+        </div>
     </li>)}
 </ul>
 }
