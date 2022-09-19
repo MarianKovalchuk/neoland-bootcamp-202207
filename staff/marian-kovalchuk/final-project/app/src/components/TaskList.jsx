@@ -1,7 +1,7 @@
 import './TaskList.css'
 import Loggito from '../utils/Loggito'
 
-function TaskList({ tasks, onDeleteTask, onUpdateTask }) {
+function TaskList({ tasks, onDeleteTask, onUpdateTaskText }) {
     const logger = new Loggito('List')
 
     logger.info('return')
@@ -22,7 +22,7 @@ function TaskList({ tasks, onDeleteTask, onUpdateTask }) {
             window.updateTaskTimeoutId = setTimeout(() => {
                 const text = event.target.innerText
                 
-               onUpdateTask(task.id, text)
+               onUpdateTaskText(task.id, text)
             }, 500)
         }}>{task.text}</p>
         </div>

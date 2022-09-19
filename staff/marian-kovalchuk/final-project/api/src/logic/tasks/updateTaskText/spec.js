@@ -44,8 +44,8 @@ describe('updateTaskText', () => {
         const email1 = 'pepito@grillo.com'
         const password1 = '123123123'
 
-        const name2 = 'Wendy Bread'
-        const email2 = 'wendybread@gmail.com'
+        const name2 = 'Marian Ko'
+        const email2 = 'marian@ko.com'
         const password2 = '123123123'
 
         return Promise.all([

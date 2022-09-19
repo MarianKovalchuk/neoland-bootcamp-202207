@@ -21,9 +21,9 @@ const task = new Schema({
         default: Date.now
     },
 
-    progress: {
+    status: {
         type: String,
-        enum: ['new', 'in progress', 'done']
+        enum: ['todo', 'doing', 'done']
     }
 })
 

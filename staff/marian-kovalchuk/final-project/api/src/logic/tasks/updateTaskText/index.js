@@ -1,5 +1,3 @@
-require('dotenv').config()
-
 const { NotFoundError, AuthError } = require("errors")
 const { User, Task } = require("../../../models")
 const { verifyObjectIdString } = require("../../../utils")
@@ -14,7 +12,7 @@ function updateTaskText(userId, taskId, text) {
         .then(user => {
             if (!user) throw new NotFoundError(`user with id ${userId} not found`)
 
-            return task.findById(taskId)
+            return Task.findById(taskId)
         })
         .then(task => {
             if (!task) throw new NotFoundError(`task with id ${taskId} not found`)
